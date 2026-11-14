@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gugan Krishna M – Marketing & Design Portfolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&family=Noto+Sans+Tamil:wght@500&family=Noto+Sans+Telugu:wght@500&family=Noto+Sans+Kannada:wght@500&family=Noto+Sans+Devanagari:wght@500&display=swap">
+<style>
+:root{--bg:#0a0103;--bg2:#1a0206;--fg:#fff8ea;--mut:#c9a9ad;--red:#e5121f;--line:rgba(255,80,80,.28);color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a0103}}
+:root[data-theme="dark"]{--bg:#0a0103}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px;height:auto}
+body{background:var(--bg);color:var(--fg);font:300 17px/1.6 Outfit,system-ui,sans-serif;overflow-x:hidden}
+body.boot{overflow:hidden}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+#glow{position:fixed;inset:0;pointer-events:none;z-index:1;background:radial-gradient(500px circle at var(--x,50%) var(--y,30%),rgba(229,18,31,.22),transparent 70%)}
+/* boot */
+#boot{position:fixed;inset:0;z-index:100;background:#000;display:grid;place-items:center;transition:opacity .9s,transform .9s cubic-bezier(.7,0,.2,1)}
+#boot.done{opacity:0;transform:scale(1.15);pointer-events:none}
+#hi{font-size:clamp(56px,14vw,150px);font-weight:500;line-height:1.3;padding:0 .1em;background:linear-gradient(90deg,#ff3b30,#ff9f0a,#bf5af2,#0a84ff,#ff3b30);background-size:300% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 3s linear infinite;opacity:0;font-family:Outfit,sans-serif}
+#hi.show{animation:flow 3s linear infinite,pop 1.1s cubic-bezier(.2,.7,.2,1) both}
+#hi[lang=ta]{font-family:'Noto Sans Tamil',sans-serif}#hi[lang=te]{font-family:'Noto Sans Telugu',sans-serif}
+#hi[lang=kn]{font-family:'Noto Sans Kannada',sans-serif}#hi[lang=hi]{font-family:'Noto Sans Devanagari',sans-serif}
+@keyframes flow{to{background-position:300% 0}}
+@keyframes pop{0%{opacity:0;filter:blur(18px);transform:scale(.88)}30%,70%{opacity:1;filter:blur(0);transform:scale(1)}100%{opacity:0;filter:blur(12px);transform:scale(1.06)}}
+#skip{position:absolute;bottom:calc(28px + env(safe-area-inset-bottom,0px));right:28px;background:none;border:1px solid #444;color:#aaa;border-radius:99px;padding:6px 16px;font:inherit;font-size:14px;cursor:pointer}
+/* nav */
+nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:14px 5vw;background:rgba(10,1,3,.6);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav b{font-weight:700;letter-spacing:.02em}
+nav div{display:flex;gap:22px;font-size:15px}
+nav a{text-decoration:none;color:var(--mut);transition:color .2s}nav a:hover{color:var(--fg)}
+@media(max-width:640px){nav div a:nth-child(n+4){display:none}}
+section{position:relative;z-index:2;padding:110px 5vw;max-width:1200px;margin:auto}
+h2{font-size:clamp(34px,6vw,64px);font-weight:700;line-height:1.05;margin-bottom:40px}
+h2::after{content:"";display:block;width:64px;height:5px;background:var(--red);margin-top:16px}
+/* hero */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:120px}
+.hello{font-size:clamp(28px,5vw,52px);font-weight:500;color:var(--red);min-height:1.5em;line-height:1.5;transition:opacity .5s,filter .5s}
+.hello[lang=ta]{font-family:'Noto Sans Tamil',sans-serif}.hello[lang=te]{font-family:'Noto Sans Telugu',sans-serif}.hello[lang=kn]{font-family:'Noto Sans Kannada',sans-serif}.hello[lang=hi]{font-family:'Noto Sans Devanagari',sans-serif}
+h1{font-size:clamp(48px,11vw,150px);font-weight:700;line-height:.95;letter-spacing:-.03em;margin:10px 0 24px}
+h1 span{display:block}
+.sub{max-width:34em;color:var(--mut);font-size:19px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.chips button,.tabs button{background:none;border:1px solid var(--line);color:var(--fg);padding:8px 18px;border-radius:99px;font:inherit;font-size:15px;cursor:pointer;transition:.2s}
+.chips button:hover,.tabs button:hover,.chips button.on,.tabs button.on{background:var(--red);border-color:var(--red)}
+.hero-in>*{opacity:0;transform:translateY(30px)}
+.ready .hero-in>*{animation:up .9s cubic-bezier(.2,.7,.2,1) forwards}
+.ready .hero-in>:nth-child(2){animation-delay:.12s}.ready .hero-in>:nth-child(3){animation-delay:.24s}.ready .hero-in>:nth-child(4){animation-delay:.36s}
+@keyframes up{to{opacity:1;transform:none}}
+/* about */
+.about{display:grid;grid-template-columns:minmax(220px,360px) 1fr;gap:48px;align-items:center}
+@media(max-width:760px){.about{grid-template-columns:1fr}}
+.photo{aspect-ratio:3/4;border-radius:0;border:1px solid var(--red);background:linear-gradient(160deg,#3a0a10,#0d0204 70%),#000;display:grid;place-items:center;color:var(--mut);transform-style:preserve-3d;transition:transform .15s;overflow:hidden;padding:0}.photo img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;border-radius:0;background:#000}.stats{display:flex;gap:36px;flex-wrap:wrap;margin-top:34px}
+.stats div{padding-right:36px;border-right:1px solid var(--line)}.stats div:last-child{border:0}
+.stats b{display:block;font-size:56px;font-weight:700;line-height:1}
+.stats small{color:var(--mut)}
+.edu{border:1px solid var(--line);border-radius:20px;padding:26px 30px;max-width:760px}.edu small{color:var(--mut)}.edu h3{font-size:24px;font-weight:700}.edu p{color:var(--mut);margin-top:8px}
+/* timeline */
+.tl{border-left:2px solid var(--line);margin-left:6px}
+.job{position:relative;padding:0 0 38px 34px;cursor:pointer}
+.job::before{content:"";position:absolute;left:-9px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--bg);border:3px solid var(--red);transition:.2s}
+.job:hover::before,.job.open::before{background:var(--red);box-shadow:0 0 0 6px rgba(229,18,31,.25)}
+.job small{color:var(--mut)}.job h3{font-size:24px;font-weight:700}
+.job p{max-height:0;overflow:hidden;color:var(--mut);transition:max-height .5s,margin .5s}
+.job.open p{max-height:900px;margin-top:10px}.job b{color:var(--fg);font-weight:500}
+/* work */
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px}
+.tile{aspect-ratio:4/5;border-radius:20px;overflow:hidden;position:relative;cursor:pointer;border:1px solid var(--line);transition:transform .3s,border-color .3s;animation:up .5s both}
+.tile:hover{transform:translateY(-6px) scale(1.02);border-color:var(--red)}
+.tile svg{width:100%;height:100%;display:block}
+.tile span{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 14px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:15px}
+#lb{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.88);display:none;place-items:center;padding:5vw}
+#lb.on{display:grid}
+#lb div{width:min(520px,100%);border-radius:22px;overflow:hidden;border:1px solid var(--red)}
+#lb svg{width:100%;display:block}
+#lb p{padding:14px 18px;background:var(--bg2)}
+/* skills */
+#skills{max-width:1200px}
+.tools{display:grid;grid-template-columns:repeat(7,minmax(130px,1fr));gap:16px;margin-bottom:48px}
+.tools div{min-height:74px;display:grid;place-items:center;border:1px solid var(--line);border-radius:10px;padding:18px 12px;text-align:center;font-size:16px;transition:transform .25s ease,box-shadow .25s ease,background .25s ease,border-color .25s ease;white-space:nowrap;will-change:transform;position:relative;overflow:hidden;animation:floatCard 6s ease-in-out infinite}
+.tools div::before,.core>div::before,#more>div::before{content:"";position:absolute;inset:-20% auto auto -20%;width:40%;height:140%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);transform:translateX(-130%) rotate(18deg);transition:transform .7s ease}
+.tools div:hover,.core>div:hover,#more>div:hover{background:var(--red);transform:translateY(-6px) rotate(-1deg);border-color:#fff;box-shadow:0 12px 24px rgba(224,30,43,.35)}
+.tools div:hover::before,.core>div:hover::before,#more>div:hover::before{transform:translateX(320%) rotate(18deg)}
+.core{display:grid;grid-template-columns:repeat(4,minmax(200px,1fr));gap:22px;margin-top:10px}
+.core>div{min-height:180px;padding:22px 20px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;animation:floatCard 7s ease-in-out infinite;animation-delay:var(--delay,0s)}
+.core h3{font-size:20px;line-height:1.15;margin-bottom:10px}.core p{color:var(--mut);font-size:15px;line-height:1.55}
+#more{margin-top:26px;display:grid;grid-template-columns:repeat(3,minmax(220px,1fr));gap:22px}
+#more>div{min-height:180px;padding:22px 20px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;animation:floatCard 8s ease-in-out infinite}
+.pl{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}.pl span{border:1px solid var(--line);border-radius:99px;padding:4px 14px;font-size:14px;color:var(--mut);transition:transform .2s ease,background .2s ease}.pl span:hover{transform:translateY(-2px);background:rgba(255,255,255,.08)}
+@keyframes floatCard{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@media(max-width:1100px){#skills{padding:0 8px}.tools{grid-template-columns:repeat(4,minmax(120px,1fr));gap:14px}.core{grid-template-columns:repeat(2,minmax(200px,1fr));gap:18px}#more{grid-template-columns:repeat(2,minmax(200px,1fr));gap:18px}.tools div{font-size:14px;padding:14px 10px}.core>div,#more>div{min-height:170px}}
+@media(max-width:760px){.tools{grid-template-columns:repeat(3,minmax(110px,1fr));gap:12px}.core,#more{grid-template-columns:1fr}.core>div,#more>div{min-height:150px}.tools div{white-space:normal;line-height:1.2}} 
+@media(max-width:640px){.tools{grid-template-columns:repeat(2,minmax(110px,1fr));gap:12px}.tools div{min-height:64px;font-size:13px;padding:12px 8px}.core>div,#more>div{padding:18px 16px}.core h3{font-size:18px}.core p{font-size:14px}.pl span{font-size:12px;padding:4px 10px}}
+/* contact */
+#contact{text-align:center}#contact h2::after{margin:16px auto 0}
+.cta{display:inline-block;background:var(--red);padding:16px 38px;border-radius:99px;text-decoration:none;font-weight:700;font-size:20px;transition:transform .2s}
+.cta:hover{transform:scale(1.06)}
+footer{position:relative;z-index:2;text-align:center;padding:30px;color:var(--mut);font-size:14px}
+footer button{background:none;border:0;color:var(--fg);font:inherit;text-decoration:underline;cursor:pointer}
+.rv{opacity:0;transform:translateY(24px);transition:.8s}.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01s!important;transition-duration:.01s!important}}
+</style>
+</head>
+<body class="boot">
+<div id="boot" role="status" aria-label="Welcome"><div id="hi" lang="en">hello</div><button id="skip">Skip</button></div>
+<div id="glow"></div>
+<nav><b>Gugan Krishna M</b><div><a href="#about">About</a><a href="#exp">Experience</a><a href="#work">Work</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div></nav>
+
+<section id="hero"><div class="hero-in">
+<div class="hello" id="hello">Hello</div>
+<h1>Gugan<span>Krishna M</span></h1>
+<p class="sub">Integrated marketing executive turning Chennai real estate launches into brands people remember. Design, SEO, social and field campaigns under one roof.</p>
+</div></section>
+
+<section id="about"><h2 class="rv">About me</h2>
+<div class="about rv"><div class="photo" id="photo"><img src="image/Gugan.png" alt="Gugan Krishna M portrait"></div>
+<div><p>Integrated Marketing Executive with experience across digital marketing, field marketing, SEO, social media, real estate marketing and sales. I develop and run integrated campaigns, brand activations, lead-generation initiatives and customer acquisition strategies, with a focus on impactful brand experiences and measurable outcomes. I’m proficient in GA4, GTM, SEMrush, Meta Ads, Adobe Creative Cloud, Canva, WordPress and CRM tools.</p>
+<div class="stats"><div><b data-n="2">0</b><small>years of experience</small></div><div><b data-n="10">0</b><small>brands worked with</small></div><div><b>360°</b><small>marketing approach</small></div></div></div></div></section>
+
+<section id="edu"><h2 class="rv">Education</h2>
+<div class="edu rv"><small>2021 – 2024 · Apollo Arts and Science</small><h3>Bachelor of Computer Application</h3><p>Focused on computer applications, technology and digital tools, building a strong foundation in problem-solving, web technologies and digital platforms.</p></div></section>
+
+<section id="exp"><h2 class="rv">Experience</h2><div class="tl rv" id="tl"></div></section>
+
+<section id="work"><h2 class="rv">Selected work</h2>
+<div class="tabs" id="tabs"></div><div class="grid" id="grid"></div></section>
+
+<section id="skills"><h2 class="rv">Tools and skills</h2>
+<div class="tools rv" id="tools"></div>
+<div class="core rv" id="core"></div>
+<div class="core rv" id="more"></div></section>
+
+<section id="contact"><h2 class="rv">Let’s work together</h2>
+<p class="rv" style="color:var(--mut);margin-bottom:30px">Have a launch coming up? Call or message me.</p>
+<a class="cta rv" href="tel:+918248451080">+91 82484 51080</a>
+<p class="rv" style="margin-top:24px;color:var(--mut)"><a href="mailto:krishguga.2005@gmail.com">krishguga.2005@gmail.com</a> · Chennai, India</p></section>
+<footer>© 2026 Gugan Krishna M · <button id="replay">Replay intro</button></footer>
+
+<div id="lb" role="dialog" aria-modal="true"><div id="lbc"></div></div>
+
+<script>
+const $=s=>document.querySelector(s);
+const greet=[["hello","en"],["नमस्ते","hi"],["வணக்கம்","ta"],["నమస్కారం","te"],["ನಮಸ್ಕಾರ","kn"]];
+const hi=$("#hi"),boot=$("#boot");let timer,idx=0;
+function finish(){clearTimeout(timer);startHello();boot.classList.add("done");document.body.classList.remove("boot");document.body.classList.add("ready")}
+function step(){
+  if(idx>=greet.length){timer=setTimeout(finish,200);return}
+  hi.classList.remove("show");void hi.offsetWidth;
+  hi.textContent=greet[idx][0];hi.lang=greet[idx][1];hi.classList.add("show");
+  idx++;timer=setTimeout(step,1150);
+}
+function play(){idx=0;document.body.classList.add("boot");document.body.classList.remove("ready");boot.classList.remove("done");step()}
+$("#skip").onclick=finish;$("#replay").onclick=()=>{scrollTo(0,0);play()};
+play();
+
+// hero greeting: changes automatically, starts after the intro ends
+const hello=$("#hello");let gi=0,auto;
+function startHello(){
+  clearInterval(auto);gi=0;hello.textContent="Hello";hello.lang="en";hello.style.opacity=1;hello.style.filter="none";
+  auto=setInterval(()=>{
+    if(document.hidden)return;
+    hello.style.opacity=0;hello.style.filter="blur(8px)";
+    setTimeout(()=>{gi=(gi+1)%greet.length;const [w,l]=greet[gi];hello.textContent=gi?w:"Hello";hello.lang=l;hello.style.opacity=1;hello.style.filter="none"},500);
+  },2500);
+}
+
+// experience
+const jobs=[
+["Nov 2025 – present","Integrated Marketing Executive","Rams Real Estates Ltd","Execute integrated marketing campaigns and project launches across digital and offline channels, with a focus on brand visibility, audience engagement and lead generation. Coordinate with creative teams, sales teams, agencies and external partners on campaigns, promotional activities and brand communications. Manage social media content, campaign calendars, market research and performance tracking while finding ways to improve audience reach and engagement.<br><br><b>Key areas:</b> Field Marketing · Brand Activations · Event Coordination · Campaign Execution · Audience Engagement · Partnerships · Social Media Management · Market Research · Lead Generation · Content Writing"],
+["Mar 2025 – Nov 2025","Relationship Manager","NoBroker Technologies","Managed and nurtured client relationships as a key point of contact, ensuring customer satisfaction and long-term engagement. Handled end-to-end client onboarding, addressed queries and provided tailored solutions to improve the customer experience. Built communication and negotiation skills, converted opportunities into successful deals and worked towards revenue and conversion targets.<br><br><b>Key areas:</b> Client Relationship Management · Customer Engagement · Sales &amp; Business Development · Lead Conversion · Negotiation · Client Onboarding · Customer Experience · Revenue Generation"],
+["Mar 2024 – Feb 2025","Brand Strategy &amp; Digital Marketing Executive","TIC Global Service","Developed and executed data-driven brand and digital marketing strategies to strengthen brand positioning, audience engagement and business growth. Worked with design and development teams to plan and deliver creative marketing initiatives with consistent brand communication across digital platforms. Managed and optimised the online presence of Lifestyle Investments, TIC Global Service and Spotlight Media, improving search visibility, organic traffic and brand awareness. Researched markets and audiences to find trends and opportunities.<br><br><b>Key areas:</b> Brand Strategy · Digital Marketing · Campaign Planning · Social Media · SEO · Content Strategy · Audience Engagement · Brand Positioning · Market Research · Performance Optimisation"],
+["Jan 2024 – Mar 2024","SEO Specialist (internship)","Tick Network","Managed and optimised website performance through On-Page, Off-Page, Technical and Local SEO. Managed Google Merchant Center, optimised category pages and wrote SEO-friendly blogs and content for e-commerce and service websites. Used Google Analytics, Google Tag Manager, SEMrush and Moz to monitor performance, analyse search trends and improve organic visibility and rankings.<br><br><b>Key areas:</b> On-Page SEO · Off-Page SEO · Technical SEO · Local SEO · Google Merchant Center · Google Analytics · GTM · SEMrush · Moz · Keyword Research · Website and Content Optimisation · Organic Traffic Growth"]];
+$("#tl").innerHTML=jobs.map((j,i)=>`<div class="job${i?"":" open"}" tabindex="0"><small>${j[0]} · ${j[2]}</small><h3>${j[1]}</h3><p>${j[3]}</p></div>`).join("");
+// experience: opens one role at a time and rotates automatically
+const jobEls=[...document.querySelectorAll(".job")];let ji=0,jhold=false,jwait=0,jvis=false;
+function openJob(i){jobEls.forEach((e,k)=>e.classList.toggle("open",k==i));ji=i}
+jobEls.forEach((e,i)=>{const t=()=>{jwait=Date.now()+12000;e.classList.contains("open")?e.classList.remove("open"):openJob(i)};e.onclick=t;e.onkeydown=k=>{if(k.key=="Enter"||k.key==" "){k.preventDefault();t()}}});
+$("#tl").onpointerenter=e=>{jhold=e.pointerType=="mouse"};$("#tl").onpointerleave=()=>{jhold=false};
+new IntersectionObserver(es=>{jvis=es[0].isIntersecting}).observe($("#tl"));
+setInterval(()=>{if(jhold||document.hidden||!jvis||Date.now()<jwait)return;openJob((ji+1)%jobEls.length)},6000);
+
+// work gallery (dummy visuals)
+const cats={"Social media":["Apollo launch post","Connectivity map post","Better life post","Ready to occupy","Coming soon teaser","The Rams Way"],
+"Brochures":["Altura brochure","Avigna brochure","Project glance spread"],
+"Offline ads":["Site hoarding","Billboard","Newspaper ad","Roadside board"],
+"SEO and social results":["Search Console growth","Instagram reach","LinkedIn followers"]};
+const hues=[350,12,28,340,0,320];
+function art(h,i){return `<svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="g${i}${h}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="hsl(${h} 80% 38%)"/><stop offset="1" stop-color="hsl(${h+30} 70% 8%)"/></linearGradient></defs><rect width="400" height="500" fill="url(#g${i}${h})"/><circle cx="310" cy="110" r="46" fill="hsl(${h+20} 90% 70%)" opacity=".55"/><g fill="hsl(${h} 30% 10%)" opacity=".85"><rect x="90" y="190" width="130" height="250"/><rect x="230" y="260" width="80" height="180"/><rect x="40" y="300" width="45" height="140"/></g><g fill="hsl(${h+30} 90% 75%)" opacity=".7">${[0,1,2,3].map(r=>`<rect x="105" y="${205+r*55}" width="22" height="26"/><rect x="150" y="${205+r*55}" width="22" height="26"/><rect x="190" y="${205+r*55}" width="22" height="26"/>`).join("")}</g></svg>`}
+let cur=Object.keys(cats)[0];
+function show(){$("#grid").innerHTML=cats[cur].map((t,i)=>`<div class="tile" tabindex="0" data-i="${i}" style="animation-delay:${i*60}ms">${art(hues[i%6],i)}<span>${t}</span></div>`).join("");
+  document.querySelectorAll(".tile").forEach(e=>{const o=()=>{const i=+e.dataset.i;$("#lbc").innerHTML=art(hues[i%6],"x"+i)+`<p>${cats[cur][i]} · placeholder, real photo goes here</p>`;$("#lb").classList.add("on")};e.onclick=o;e.onkeydown=k=>{if(k.key=="Enter")o()}})}
+$("#tabs").innerHTML=Object.keys(cats).map((c,i)=>`<button class="${i?"":"on"}">${c}</button>`).join("");
+document.querySelectorAll("#tabs button").forEach(b=>b.onclick=()=>{document.querySelectorAll("#tabs button").forEach(x=>x.classList.remove("on"));b.classList.add("on");cur=b.textContent;show()});
+show();
+$("#lb").onclick=()=>$("#lb").classList.remove("on");
+addEventListener("keydown",e=>{if(e.key=="Escape")$("#lb").classList.remove("on")});
+
+// skills
+$("#tools").innerHTML="Google Analytics,Tag Manager,SEMrush,Meta Ads,Photoshop,Illustrator,After Effects,Canva,Google Sheets,Shopify,Wix,Framer,Webflow,ChatGPT,Claude,Gemini,WordPress,CRM tools".split(",").map((t,i)=>`<div style="animation-delay:${(i%7)*.5}s">${t}</div>`).join("");
+$("#core").innerHTML=[["Integrated marketing","Strategy, execution, performance"],["Digital marketing","SEO, SEM, social, paid ads"],["Brand and campaigns","Planning and launches"],["Lead generation and sales","Acquisition, nurturing, conversion"],["Event and field marketing","Activations and on-ground campaigns"],["Research and content","Insights, competitor analysis, writing"]].map((c,i)=>`<div style="--delay:${(i%4)*.7}s"><h3>${c[0]}</h3><p>${c[1]}</p></div>`).join("");
+
+const pl=a=>`<div class="pl">${a.map(x=>`<span>${x}</span>`).join("")}</div>`;
+$("#more").innerHTML=[["Hard skills",["Campaign Management","Market Analysis","Meta Ads Manager","Market Research","Sales Operations","Marketing Strategy"]],["Soft skills",["Leadership","Time management","Communication","Innovation","Analytics","Teamwork","Problem solving","Collaboration"]],["Languages",["English","Tamil","Telugu","Kannada"]]].map((c,i)=>`<div style="animation-delay:${i*.8}s"><h3>${c[0]}</h3>${pl(c[1])}</div>`).join("");
+
+[...document.querySelectorAll(".tools div, .core > div, #more > div")].forEach(card=>{
+  card.addEventListener("pointermove", e=>{
+    const rect=card.getBoundingClientRect();
+    const x=(e.clientX-rect.left)/rect.width-.5;
+    const y=(e.clientY-rect.top)/rect.height-.5;
+    const rx=(-(y*10)).toFixed(2);
+    const ry=((x*12)).toFixed(2);
+    card.style.transform=`perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-8px)`;
+    card.style.boxShadow=`${-ry*1.8}px ${rx*1.8}px 24px rgba(224,30,43,.35)`;
+  });
+  card.addEventListener("pointerleave", ()=>{
+    card.style.transform="";
+    card.style.boxShadow="";
+  });
+});
+
+// glow + tilt + reveal + counters
+addEventListener("pointermove",e=>{const s=document.documentElement.style;s.setProperty("--x",e.clientX+"px");s.setProperty("--y",e.clientY+"px")});
+const ph=$("#photo");ph.onpointermove=e=>{const r=ph.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;ph.style.transform=`perspective(700px) rotateY(${x*16}deg) rotateX(${-y*16}deg)`};ph.onpointerleave=()=>ph.style.transform="";
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");e.target.querySelectorAll("[data-n]").forEach(c=>{let n=0,t=+c.dataset.n;const iv=setInterval(()=>{c.textContent=++n+"+";if(n>=t)clearInterval(iv)},180)});io.unobserve(e.target)}}),{threshold:.2});
+document.querySelectorAll(".rv").forEach(e=>io.observe(e));
+</script>
+</body>
+</html>
